@@ -53,8 +53,18 @@ class ViewController: UIViewController {
         if questionNumber < allQuestions.list.count{
             questionLabel.text = allQuestions.list[questionNumber].questionText
         }else{
-            print("Questions finished")
-            startOver()
+//            print("Questions finished")
+//            startOver()
+            
+            let alert = UIAlertController(title: "Finished", message: "You're the bomb. Start over", preferredStyle: .alert)
+            
+            let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { (alert) in
+                self.startOver()
+            })
+            
+            alert.addAction(restartAction)
+            
+            present(alert, animated: true, completion: nil)
         }
     }
     
