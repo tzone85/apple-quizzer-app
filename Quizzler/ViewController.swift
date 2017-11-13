@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     //keeps track of the state.
     var questionNumber : Int = 0
     
+    var score : Int = 0
+    
 
     //Place your instance variables here
     
@@ -46,12 +48,13 @@ class ViewController: UIViewController {
     }
     
     func updateUI() {
-      
+        scoreLabel.text = "Score: \(score)"
     }
     
     func nextQuestion() {
         if questionNumber < allQuestions.list.count{
             questionLabel.text = allQuestions.list[questionNumber].questionText
+            updateUI()
         }else{
             let alert = UIAlertController(title: "Finished", message: "You're the bomb. Start over", preferredStyle: .alert)
             
@@ -69,6 +72,7 @@ class ViewController: UIViewController {
         let correctAnswer = allQuestions.list[questionNumber].answer
         
         if correctAnswer == pickedAnswer{
+            score += 1
             print("You've got it!")
         }
         else {
@@ -78,6 +82,7 @@ class ViewController: UIViewController {
     
     func startOver() {
        questionNumber = 0
-        viewDidLoad()
+//        viewDidLoad()
+        nextQuestion()
     }
 }
