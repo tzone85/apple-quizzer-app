@@ -49,6 +49,9 @@ class ViewController: UIViewController {
     func updateUI() {
         scoreLabel.text = "Score: \(score)"
         progressLabel.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
+        
+        //deviding the screen width with the number of questions we have in our questionbank
+        progressBar.frame.size.width = (view.frame.size.width / CGFloat(allQuestions.list.count) * CGFloat(questionNumber + 1))
     }
     
     func nextQuestion() {
@@ -73,7 +76,8 @@ class ViewController: UIViewController {
         
         if correctAnswer == pickedAnswer{
             print("You've got it!")
-            score += 1
+            score = score + 1
+            
         }
         else {
             print("Wrong")
