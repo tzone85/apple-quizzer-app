@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     
     var score : Int = 0
     
-
     //Place your instance variables here
     
     @IBOutlet weak var questionLabel: UILabel!
@@ -49,7 +48,7 @@ class ViewController: UIViewController {
     
     func updateUI() {
         scoreLabel.text = "Score: \(score)"
-        progressLabel.text = "\(questionNumber)/\(allQuestions.list.count)"
+        progressLabel.text = "\(questionNumber + 1)/\(allQuestions.list.count)"
     }
     
     func nextQuestion() {
@@ -73,8 +72,8 @@ class ViewController: UIViewController {
         let correctAnswer = allQuestions.list[questionNumber].answer
         
         if correctAnswer == pickedAnswer{
-            score += 1
             print("You've got it!")
+            score += 1
         }
         else {
             print("Wrong")
@@ -83,6 +82,7 @@ class ViewController: UIViewController {
     
     func startOver() {
        questionNumber = 0
+        score = 0
 //        viewDidLoad()
         nextQuestion()
     }
