@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     
     func updateUI() {
         scoreLabel.text = "Score: \(score)"
+        progressLabel.text = "\(questionNumber)/\(allQuestions.list.count)"
     }
     
     func nextQuestion() {
@@ -56,7 +57,7 @@ class ViewController: UIViewController {
             questionLabel.text = allQuestions.list[questionNumber].questionText
             updateUI()
         }else{
-            let alert = UIAlertController(title: "Finished", message: "You're the bomb. Start over", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Finished", message: "Ended, your score: \(score)", preferredStyle: .alert)
             
             let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { (alert) in
                 self.startOver()
