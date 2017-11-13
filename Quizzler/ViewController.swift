@@ -53,9 +53,6 @@ class ViewController: UIViewController {
         if questionNumber < allQuestions.list.count{
             questionLabel.text = allQuestions.list[questionNumber].questionText
         }else{
-//            print("Questions finished")
-//            startOver()
-            
             let alert = UIAlertController(title: "Finished", message: "You're the bomb. Start over", preferredStyle: .alert)
             
             let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { (alert) in
@@ -70,7 +67,6 @@ class ViewController: UIViewController {
     
     func checkAnswer() {
         let correctAnswer = allQuestions.list[questionNumber].answer
-        //let answer = firstQuestion.answer
         
         if correctAnswer == pickedAnswer{
             print("You've got it!")
