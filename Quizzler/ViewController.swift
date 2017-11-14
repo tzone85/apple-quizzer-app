@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         
         if correctAnswer == pickedAnswer{
             ProgressHUD.showSuccess("Correct")
-            score = score + 1
+            score += 1
             
         }
         else {
